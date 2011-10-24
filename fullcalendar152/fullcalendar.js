@@ -263,8 +263,14 @@ function Calendar(element, options, eventSources) {
 		}
 		content = $("<div class='fc-content' style='position:relative'/>")
 			.prependTo(element);
+			
+		
 		header = new Header(t, options);
-		headerElement = header.render();
+		/* Thomas on 21 Oct this is to hide base Header and is based on new config option hideHeaders */
+		if(!options.hideHeaders){
+			headerElement = header.render(); 
+		}
+		/**/
 		if (headerElement) {
 			element.prepend(headerElement);
 		}
@@ -447,6 +453,7 @@ function Calendar(element, options, eventSources) {
 		else {
 			suggestedViewHeight = Math.round(content.width() / Math.max(options.aspectRatio, .5));
 		}
+		
 	}
 	
 	
@@ -2232,6 +2239,7 @@ function BasicView(element, calendar, viewName) {
 			s +=
 				"<tr class='fc-week" + i + "'>";
 			for (j=0; j<colCnt; j++) {
+				console.log(contentClass);
 				s +=
 					"<td class='fc- " + contentClass + " fc-day" + (i*colCnt+j) + "'>" + // need fc- for setDayID
 					"<div>" +
@@ -2877,7 +2885,6 @@ function AgendaView(element, calendar, viewName) {
 	var slotSegHtml = t.slotSegHtml;
 	var formatDate = calendar.formatDate;
 	
-	
 	// locals
 	
 	var dayTable;
@@ -2975,6 +2982,8 @@ function AgendaView(element, calendar, viewName) {
 		
 		s =
 			"<table style='width:100%' class='fc-agenda-days fc-border-separate' cellspacing='0'>" +
+			/* Thomas on Oct 22 // Better to implement as a config options, this is to hide day header, not used now*/
+			
 			"<thead>" +
 			"<tr>" +
 			"<th class='fc-agenda-axis " + headerClass + "'>&nbsp;</th>";
@@ -2986,6 +2995,7 @@ function AgendaView(element, calendar, viewName) {
 			"<th class='fc-agenda-gutter " + headerClass + "'>&nbsp;</th>" +
 			"</tr>" +
 			"</thead>" +
+			
 			"<tbody>" +
 			"<tr>" +
 			"<th class='fc-agenda-axis " + headerClass + "'>&nbsp;</th>";
@@ -3032,7 +3042,7 @@ function AgendaView(element, calendar, viewName) {
 			s =
 				"<table style='width:100%' class='fc-agenda-allday' cellspacing='0'>" +
 				"<tr>" +
-				"<th class='" + headerClass + " fc-agenda-axis'>" + opt('allDayText') + "</th>" +
+				"<th class='" + headerClass + " fc-agenda-axis fc-agenda-axis-allday'>" + opt('allDayText') + "</th>" +
 				"<td>" +
 				"<div class='fc-day-content'><div style='position:relative'/></div>" +
 				"</td>" +
@@ -3060,7 +3070,9 @@ function AgendaView(element, calendar, viewName) {
 		}
 		
 		slotScroller =
-			$("<div style='position:absolute;width:100%;overflow-x:hidden;overflow-y:auto'/>")
+			//$("<div style='position:absolute;width:100%;overflow-x:hidden;overflow-y:auto'/>")
+			/* Thomas Oct 22, this is to remove scrollbar  for week and day view*/
+			$("<div style='position:absolute;width:100%;overflow-x:hidden;overflow-y:hidden'/>")
 				.appendTo(slotLayer);
 				
 		slotContent =
@@ -3141,12 +3153,14 @@ function AgendaView(element, calendar, viewName) {
 			slotTable.height() + allDayHeight + 1 // when no scrollbars. +1 for bottom border
 		);
 		
-		dayBodyFirstCellStretcher
-			.height(bodyHeight - vsides(dayBodyFirstCell));
+		/*Thomas Oct 22 to adjust height of  hightlighted  div container to fit into whole page */
+		//dayBodyFirstCellStretcher.height(bodyHeight - vsides(dayBodyFirstCell));
+		dayBodyFirstCellStretcher.height(slotTable.height()+35);
 		
 		slotLayer.css('top', headHeight);
 		
-		slotScroller.height(bodyHeight - allDayHeight - 1);
+		//slotScroller.height(bodyHeight - allDayHeight - 1); Thomas Oct 22 //this is to make scrollable div of week and day view to take full height
+		slotScroller.height(slotTable.height());
 		
 		slotHeight = slotTableFirstInner.height() + 1; // +1 for border
 		

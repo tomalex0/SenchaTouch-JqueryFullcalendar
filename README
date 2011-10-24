@@ -1,3 +1,5 @@
 Based on arshaw fullcalendar http://arshaw.com/fullcalendar/ and what blessan has started with http://www.sencha.com/forum/showthread.php?104976-Calendar-based-on-Full-Calendar&s=459158a3e6912e9e0188876a003a90c1.
 
-I have modified  it to fullcalendar version 1.5.2 and  which behaves more like a component. 
+I have modified  it to fullcalendar version 1.5.2 and  which behaves more like a component.
+
+Component compatible with ST1.1.1
