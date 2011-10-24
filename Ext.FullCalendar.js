@@ -198,7 +198,6 @@ Ext.FullCalendar =  Ext.extend(Ext.Panel,{
 	    $(".fc-view-month").removeAttr("style");
 	    $(".fc-view-agendaWeek").css({"position":'relative'});
 	    $(".fc-view-agendaDay").css({"position":'relative'});
-	  
 	} else if(view == "agendaWeek"){
 	    $(".fc-view-agendaWeek").removeAttr("style");
 	    $(".fc-view-agendaDay").css({"position":'relative'});
