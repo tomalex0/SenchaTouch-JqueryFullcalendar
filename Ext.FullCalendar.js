@@ -11,11 +11,20 @@ Ext.FullCalendar =  Ext.extend(Ext.Panel,{
         // placeholder div for fullcalendar
         me.html = "<div id="+me.placeholder_id+"></div>";
         
+	
         //apply fullcalender when panel is rendered
         me.on('afterrender',function(){
             me.renderFullCalendar();
             me.applySwipeEvent();
             me.changeCalendarView(me.defaultview);
+	    
+	    me.scroller.on('scrollstart',function(){
+		me.suspendEvents();
+	    });
+	    
+	    me.scroller.on('scrollend',function(){
+		me.resumeEvents();
+	    });
         });
         
         this.bottomSegmentedBtn = new Ext.SegmentedButton({
@@ -151,25 +160,10 @@ Ext.FullCalendar =  Ext.extend(Ext.Panel,{
                     url: 'http://google.com/'
             }],
 	    dayClick: function(date, allDay, jsEvent, view) {
-		if (allDay) {
-		    alert('Clicked on the entire day: ' + date);
-		}else{
-		    alert('Clicked on the slot: ' + date);
-		}
-		alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-		alert('Current view: ' + view.name);
-		// change the day's background color just for fun
-		$(this).css('background-color', 'red');
-		
-		//me.fireEvent('dayclick',date, allDay, jsEvent, view);
+		me.fireEvent('dayclick',date, allDay, jsEvent, view,this);
 	    },
 	    eventClick: function(calEvent, jsEvent, view) {
-		alert('Event: ' + calEvent.title);
-		alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-		alert('View: ' + view.name);
-		// change the border color just for fun
-		$(this).css('border-color', 'red');
-		//me.fireEvent('eventclick',calEvent, jsEvent, view);
+		me.fireEvent('eventclick',calEvent, jsEvent, view,this);
 	    },
 	    columnFormat:{
 		month: 'ddd',    // Mon
