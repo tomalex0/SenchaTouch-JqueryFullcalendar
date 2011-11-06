@@ -3155,7 +3155,7 @@ function AgendaView(element, calendar, viewName) {
 		
 		/*Thomas Oct 22 to adjust height of  hightlighted  div container to fit into whole page */
 		//dayBodyFirstCellStretcher.height(bodyHeight - vsides(dayBodyFirstCell));
-		dayBodyFirstCellStretcher.height(slotTable.height()+35);
+		dayBodyFirstCellStretcher.height(slotTable.height()+allDayHeight);
 		
 		slotLayer.css('top', headHeight);
 		
