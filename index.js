@@ -22,7 +22,6 @@ Ext.setup({
 	    }],
 	    items : [{
 		xtype : 'fullcalendarpanel',
-		scroll : 'vertical',
 		listeners : {
 		    dayclick : function(date, allDay, jsEvent, view, fc){
 			if (allDay) {

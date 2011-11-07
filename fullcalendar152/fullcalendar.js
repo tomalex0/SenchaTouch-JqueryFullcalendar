@@ -266,7 +266,7 @@ function Calendar(element, options, eventSources) {
 			
 		
 		header = new Header(t, options);
-		/* Thomas on 21 Oct this is to hide base Header and is based on new config option hideHeaders */
+		/* Thomas on 21 Oct this is to hide base Header and is based on new config option hideHeaders : Note*/
 		if(!options.hideHeaders){
 			headerElement = header.render(); 
 		}
@@ -2982,7 +2982,7 @@ function AgendaView(element, calendar, viewName) {
 		
 		s =
 			"<table style='width:100%' class='fc-agenda-days fc-border-separate' cellspacing='0'>" +
-			/* Thomas on Oct 22 // Better to implement as a config options, this is to hide day header, not used now*/
+			/* Thomas on Oct 22 // Better to implement as a config options, this is to hide day header, not used now : Note*/
 			
 			"<thead>" +
 			"<tr>" +
@@ -3071,7 +3071,7 @@ function AgendaView(element, calendar, viewName) {
 		
 		slotScroller =
 			//$("<div style='position:absolute;width:100%;overflow-x:hidden;overflow-y:auto'/>")
-			/* Thomas Oct 22, this is to remove scrollbar  for week and day view*/
+			/* Thomas Oct 22, this is to remove scrollbar  for week and day view : Note*/
 			$("<div style='position:absolute;width:100%;overflow-x:hidden;overflow-y:hidden'/>")
 				.appendTo(slotLayer);
 				
@@ -3153,13 +3153,13 @@ function AgendaView(element, calendar, viewName) {
 			slotTable.height() + allDayHeight + 1 // when no scrollbars. +1 for bottom border
 		);
 		
-		/*Thomas Oct 22 to adjust height of  hightlighted  div container to fit into whole page */
+		/*Thomas Oct 22 to adjust height of  hightlighted  div container to fit into whole page : Note*/
 		//dayBodyFirstCellStretcher.height(bodyHeight - vsides(dayBodyFirstCell));
 		dayBodyFirstCellStretcher.height(slotTable.height()+allDayHeight);
 		
 		slotLayer.css('top', headHeight);
 		
-		//slotScroller.height(bodyHeight - allDayHeight - 1); Thomas Oct 22 //this is to make scrollable div of week and day view to take full height
+		//slotScroller.height(bodyHeight - allDayHeight - 1); Thomas Oct 22 //this is to make scrollable div of week and day view to take full height : Note
 		slotScroller.height(slotTable.height());
 		
 		slotHeight = slotTableFirstInner.height() + 1; // +1 for border
