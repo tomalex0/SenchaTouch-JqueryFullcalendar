@@ -372,7 +372,6 @@ function Calendar(element, options, eventSources) {
 	
 	
 	function renderView(inc) {
-		console.log(inc,"Its here");
 		if (elementVisible()) {
 			ignoreWindowResize++; // because renderEvents might temporarily change the height before setSize is reached
 
@@ -2240,7 +2239,6 @@ function BasicView(element, calendar, viewName) {
 			s +=
 				"<tr class='fc-week" + i + "'>";
 			for (j=0; j<colCnt; j++) {
-				console.log(contentClass);
 				s +=
 					"<td class='fc- " + contentClass + " fc-day" + (i*colCnt+j) + "'>" + // need fc- for setDayID
 					"<div>" +
