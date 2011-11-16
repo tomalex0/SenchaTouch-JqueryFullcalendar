@@ -372,6 +372,7 @@ function Calendar(element, options, eventSources) {
 	
 	
 	function renderView(inc) {
+		console.log(inc,"Its here");
 		if (elementVisible()) {
 			ignoreWindowResize++; // because renderEvents might temporarily change the height before setSize is reached
 

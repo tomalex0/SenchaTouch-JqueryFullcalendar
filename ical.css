@@ -1,0 +1,39 @@
+
+/*day header for month*/
+.fc .fc-view-month.fc-grid th, .fc .fc-view-month .fc-agenda th{
+    background-color:#24364C;
+    background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5A81AF), color-stop(2%, #304864), color-stop(100%, #192533));
+    background-image:linear-gradient(#5A81AF,#304864 2%,#192533);
+    color:white ;
+    font-weight:bold;
+    font-size: 1em;
+}
+
+/*today highlight*/
+.fc-view-month .fc-widget-content.fc-today {
+    -moz-box-shadow:inset 0px 0px 15px 2px #000000;
+    -webkit-box-shadow:inset 0px 0px 15px 2px #000000;
+    box-shadow:inset 0px 0px 15px 2px #000000;
+    background-image: -moz-linear-gradient(top, #475a78, #597196);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#475a78), to(#597196));
+    background-image: -o-linear-gradient(top, #475a78, #597196);
+    background-image: linear-gradient(top, #475a78, #597196);
+    color:white;
+    /*#1C7FE4;*/
+}
+
+
+.fc-view-month .fc-widget-content {
+    border: 1px solid #97A5C6;
+    border-width:1px 1px 1px 1px;
+    border-collapse:separate;
+    box-shadow:0px 0px 1px 1px #E5E5E5;
+    background: #deefff; 
+    background: -moz-linear-gradient(top, #BBC3CC 0%, #98bede 100%); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#BBC3CC), color-stop(100%,#C9D1DC)); 
+    background: -webkit-linear-gradient(top, #BBC3CC 0%,#C9D1DC 100%);
+    background: -o-linear-gradient(top, #BBC3CC 0%,#C9D1DC 100%); 
+    background: -ms-linear-gradient(top, #BBC3CC 0%,#C9D1DC 100%);
+    background: linear-gradient(top, #BBC3CC 0%,#C9D1DC 100%); 
+
+}
