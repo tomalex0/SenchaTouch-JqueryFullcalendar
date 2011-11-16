@@ -185,6 +185,7 @@ Ext.FullCalendar =  Ext.extend(Ext.Panel,{
     },
     changeCalendarView : function(view){
 	var me = this;
+	
         $('#'+me.placeholder_id).fullCalendar('changeView', view);
 	
 	// to fix issue regarding the scroll area of week and day not taking full height. 
@@ -201,6 +202,7 @@ Ext.FullCalendar =  Ext.extend(Ext.Panel,{
 	    $(".fc-view-agendaWeek").css({"position":'relative'});
 	    $(".fc-view-month").css({"position":'relative'});
 	}
+	me.scroller.scrollTo(0, false);
         me.changeTitle();
     },
     viewToday : function(){
